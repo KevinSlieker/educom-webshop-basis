@@ -1,1 +1,62 @@
 <!DOCTYPE html>
+<html>
+
+<head>
+<!-- JH TIP: Spring de regels na een start tag in, en zet de sluit tag weer op hetzelfde inspring niveau als de starttag -->
+<title> Contact </title>
+
+</head>
+
+<body>
+
+<h1> Contact </h1>
+
+
+<ul>
+<li> <a Href="index.html"> Home </a>  </li>
+<li> <a Href="about.html"> About </a> </li>
+<li> <a Href="contact.html"> Contact </a> </li>
+</ul>
+
+
+<form>
+<label for="aanhef">Aanhef: </label>
+<select id="aanhef" name="aanhef"> <!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+<option value="Dhr">Dhr</option> <!-- JH TIP: Gebruik Engelstalige namen voor attributen value van <option>, je toekomstige internationale collega's zullen je dankbaar zijn -->
+<option value="Mvr">Mvr</option> 
+</select> <br>
+
+<br>
+  <label for="naam">naam:</label><br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+  <input type="text" id="naam" name="naam" value="John"><br><br><!-- JH TIP: Zet een voorbeeld niet in value, want dan moet je het weghalen, zet het in attribuut "placeholder" -->
+  <label for="email">email:</label><br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+  <input type="text" id="email" name="email" value="Doe@gmail.com"><br><br><!-- JH TIP: Zet een voorbeeld niet in value, want dan moet je het weghalen, zet het in attribuut "placeholder" -->
+  <label for="telefoonnummer">telefoonnummer:</label><br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+  <input type="text" id="telefoonnummer" name="telefoonnummer" value="0612345678"><br> <!-- JH TIP: Zet een voorbeeld niet in value, want dan moet je het weghalen, zet het in attribuut "placeholder" -->
+ 
+ <br>
+  <label for="communicatievoorkeur"> Communicatievoorkeur:</label><br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+  <input type="radio" id="email" name="communicatievoorkeur" value="email"> 
+  <label for="email">email</label><br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+  <input type="radio" id="telefoon" name="communicatievoorkeur" value="telefoon"> <!-- JH TIP: Gebruik Engelstalige namen voor attributen value van input type radio, je toekomstige internationale collega's zullen je dankbaar zijn -->
+  <label for="telefoon">telefoon</label><br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+ <br>
+ 
+ <label for="invulveld"> Invulvled: </label> <br><!-- JH TIP: Gebruik Engelstalige namen voor attributen id en name, je toekomstige internationale collega's zullen je dankbaar zijn -->
+ <textarea name="invulveld" rows="8" cols="30">Vul hier overige informatie die van belang is in. </textarea> <br><!-- JH TIP: Zet een voorbeeld niet in tussen <textarea> en </textarea>, want dan moet je het weghalen, zet het in attribuut "placeholder" -->
+ <br>
+ 
+ <input type="submit" value="Verstuur">
+ 
+ 
+</form>
+
+
+</body>
+
+<footer>
+<h1> &copy;, 2022, Kevin Slieker </h1>
+</footer>
+
+
+</html>
