@@ -1,1 +1,51 @@
-/* Cascade Style Sheet for this website */
+/* Cascade Style Sheet for this website    hoofdtekst???*/
+
+body {
+	max-width : 800px;
+	margin: auto;
+}
+
+h1 {
+	text-align: center;
+	font-size; 48px;
+	}
+
+
+
+div.links li > a {
+	text-decoration: none;
+	border-style: solid;
+	border-width: thin;
+	list-style-type: none;
+	color: white;
+	background-color: blue;
+}
+
+div.links ul{
+	list-style-type: none;
+}
+
+div.links li {
+	display: inline;
+}
+
+p1,p2,p3 {
+	font-size: 12px;
+	color: darkgray;
+	background-color: white;
+}
+
+footer {
+background-color: black;
+color: white;
+font-size: 10px;
+text-align: right;
+}
+
+.info input, .input input{
+		width: 400px;
+}
+
+.info label, .input label{
+	float: left;
+}
