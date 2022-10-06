@@ -10,7 +10,9 @@ h1 {
 	font-size; 48px;
 	}
 
-
+.error {
+	color: red;
+}
 
 div.links li > a {
 	text-decoration: none;
