@@ -1,39 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-	
-	<link rel="stylesheet" href="CSS/stylesheet.css">
-	
-    <title> Home </title>
+<?php
 
-  </head>
+function showHomeHead(){
+    echo "Home";
+}
 
-  <body>
+function showHomeHeader() {
+    echo "Home";
+}
 
-    <h1> Home </h1>
-
-
-	<div class="links">
-    <ul>
-      <li> <a Href="home.php"> Home </a>  </li>
-      <li> <a Href="about.php"> About </a> </li>
-      <li> <a Href="contact.php"> Contact </a> </li>
-    </ul>
-	</div>
-
-
-	<div>
-    <p1>
+function showHomeContant() {
+    echo '    <p1>
     Welkom op mijn website. Ik wens je veel leesplezier toe.
-    </p1>
-	</div>
-
-
-  </body>
-
-  <footer>
-    <h2> &copy;, 2022, Kevin Slieker </h2>
-  </footer>
-
-
-</html>
+    </p1>';
+}
+?>
