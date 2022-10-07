@@ -80,10 +80,6 @@ function showBodySection($page)
    echo '    </body>' . PHP_EOL; 
 } 
 
-function endDocument() 
-{ 
-   echo  '</html>'; 
-} 
  
 function showHeader($page) 
 { 
@@ -150,4 +146,8 @@ function showFooter()
 } 
 
 
+function endDocument() 
+{ 
+   echo  '</html>'; 
+} 
 ?>

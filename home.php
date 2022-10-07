@@ -8,7 +8,7 @@ function showHomeHeader() {
     echo "Home";
 }
 
-function showHomeContant() {
+function showHomeContent() {
     echo '    <p1>
     Welkom op mijn website. Ik wens je veel leesplezier toe.
     </p1>';

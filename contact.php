@@ -1,3 +1,105 @@
+<?php
+
+function showContactHead(){
+    echo "Contact";
+}
+
+function showContactHeader() {
+    echo "Contact";
+}
+
+function showContactContent() {
+     $data = validateContact();
+
+     if ($data["valid"]) {
+
+         showContactThanks($data);
+
+     } else {
+
+         showContactForm($data);
+
+    }
+}
+ /* waarom return array ("name" => $name, 
+
+								"nameErr" => $nameErr,
+
+								"validForm" => $validForm  ); 
+		 
+		 } 
+	en waarom 	  if ($_REQUEST['REQUEST_METHOD'] == 'POST' ) {
+		>>>>>>>>	 $name = testInput(getPostVar('name'));
+					if (empty($name)) { 
+		             $nameErr = "Vul uw naam in";
+*/ 		 
+function validateContact() {
+	$preambleErr = $nameErr = $emailErr = $communicationErr = $phonenumberErr = $inputErr = "";
+	$preamble = $name = $email = $communication = $phonenumber = $input = "";
+	$valid = false;
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		if (empty($_POST["name"])) {
+			$nameErr = "Name is required";
+		} else {
+			$name = test_input($_POST["name"]);
+			if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+				$nameErr = "Only letters and white space allowed";
+			}
+		}
+
+		if (empty($_POST["email"])) {
+			$emailErr = "Email is required";
+		} else {
+			$email = test_input($_POST["email"]);
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				$emailErr = "Invalid email format";
+			}
+		}
+
+		if (empty($_POST["communication"])) {
+			$communicationErr = "Communication is required";
+		} else {
+			$communication = test_input($_POST["communication"]);
+		}
+
+		if (empty($_POST["phonenumber"])) {
+			$phonenumberErr = "Phonenumber is required";
+		} else {
+			$phonenumber = test_input($_POST["phonenumber"]);
+		}
+
+		if (empty($_POST["preamble"])) {
+			$preambleErr = "Preamble is required";
+		} else {
+			$preamble = test_input($_POST["preamble"]);
+		}
+
+		if (empty($_POST["input"])) {
+			$inputErr = "";
+		} else {
+			$input = test_input($_POST["input"]);
+		}
+
+		if (empty($nameErr) && empty($emailErr) && empty($communicationErr) && empty($phonenumberErr) && empty($preambleErr) && empty($inputErr)) {
+			$valid = true;
+		}
+
+
+	}
+}
+
+function test_input($data)
+{
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}	
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
