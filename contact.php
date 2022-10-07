@@ -137,11 +137,11 @@
 	<?php } else {?>
 	
 	<p class="thanks"> Bedankt voor het invullen van het contactformulier. </p>
+	<br>
+	<h3> Jouw gegevens:</h3>
 	<?php echo $preamble;
 		echo "<br>";
 		echo $name;
-		echo "<br>";
-		echo $preamble;
 		echo "<br>";
 		echo $email;
 		echo "<br>";
