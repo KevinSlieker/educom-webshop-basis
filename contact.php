@@ -21,14 +21,14 @@ function showContactContent() {
 
     }
 }
- /* waarom return array ("name" => $name, 
+ /* waarom? return array ("name" => $name, 
 
 								"nameErr" => $nameErr,
 
 								"validForm" => $validForm  ); 
 		 
 		 } 
-	en waarom 	  if ($_REQUEST['REQUEST_METHOD'] == 'POST' ) {
+	 En waarom? 	  if ($_REQUEST['REQUEST_METHOD'] == 'POST' ) {
 		>>>>>>>>	 $name = testInput(getPostVar('name'));
 					if (empty($name)) { 
 		             $nameErr = "Vul uw naam in";
