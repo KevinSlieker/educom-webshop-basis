@@ -79,7 +79,7 @@
     <ul>
       <li> <a Href="index.html"> Home </a>  </li>
       <li> <a Href="about.html"> About </a> </li>
-      <li> <a Href="contact.html"> Contact </a> </li>
+      <li> <a Href="contact.php"> Contact </a> </li>
     </ul>
 	</div>
 
@@ -140,6 +140,16 @@
 	<?php echo $preamble;
 		echo "<br>";
 		echo $name;
+		echo "<br>";
+		echo $preamble;
+		echo "<br>";
+		echo $email;
+		echo "<br>";
+		echo $communication;
+		echo "<br>";
+		echo $phonenumber;
+		echo "<br>";
+		echo $input;
 	?>
 	
 	<?php }?>
