@@ -15,8 +15,8 @@
 
 	<div class="links">
     <ul>
-      <li> <a Href="index.html"> Home </a>  </li>
-      <li> <a Href="about.html"> About </a> </li>
+      <li> <a Href="home.php"> Home </a>  </li>
+      <li> <a Href="about.php"> About </a> </li>
       <li> <a Href="contact.php"> Contact </a> </li>
     </ul>
 	</div>
