@@ -63,6 +63,10 @@ function showHeadSection($page)
         require_once('contact.php');
         showContactHead();
         break;
+    case 'register':
+        require_once('register.php');
+        showRegisterHead();
+        break;
     default:
         echo 'Error : Page NOT Found';
 
@@ -97,6 +101,10 @@ function showHeader($page)
             require_once('contact.php');
             showContactHeader();
             break;
+        case 'register':
+            require_once('register.php');
+            showRegisterHeader();
+            break;
         default:
             echo 'Error : Page NOT Found';
     }
@@ -111,6 +119,7 @@ function showMenu()
       <li><a Href="index.php?page=home">Home</a></li>
       <li><a Href="index.php?page=about">About</a></li>
       <li><a Href="index.php?page=contact">Contact</a></li>
+      <li><a Href="index.php?page=register">Register</a></li>
     </ul>
 	</div>';
 
@@ -131,6 +140,10 @@ function showContent($page)
        case 'contact':
             require_once('contact.php');
             showContactContent();
+            break;
+       case 'register':
+            require_once('register.php');
+            showRegisterContent();
             break;
        default:
             echo 'Error : Page NOT Found';  
