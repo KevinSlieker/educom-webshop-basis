@@ -26,7 +26,7 @@ function showResponsePage($page)
 }
 
 function getArrayVar($array, $key, $default='') 
-{ 
+{  
    return isset($array[$key]) ? $array[$key] : $default; 
 } 
 
@@ -128,7 +128,7 @@ function showContent($page)
             require_once('about.php');
             showAboutContent();
             break;
-       case 'contanct':
+       case 'contact':
             require_once('contact.php');
             showContactContent();
             break;
