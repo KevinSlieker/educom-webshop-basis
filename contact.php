@@ -104,6 +104,72 @@ function test_input($data)
 	return $data;
 }	
 
+function showContactForm($data) {
+	echo '<form action="index.php" method="post">
+	<div class="preamble">
+		<label for="preamble">Preamble: </label>
+		<select id="preamble" name="preamble">
+			<option value="mr"  if (isset($preamble) && $preamble == "mr") echo "selected"; >Mr</option>
+			<option value="mrs"  if (isset($preamble) && $preamble == "mrs") echo "selected"; >Mrs</option>
+		</select> <br>
+	</div>
+
+	<div class="info">
+		<br>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" value=" ' . $data['name']. ' " placeholder="John">
+		<span class="error"> ' . $data['nameErr'] . ' </span><br><br>
+		<label for="email">email:</label>
+		<input type="email" id="email" name="email" value=" ' . $data['email'] . ' " placeholder="Doe@gmail.com">
+		<span class="error"> ' . $data['emailErr'] . ' </span><br><br>
+		<label for="phonenumber">Phonenumber:</label>
+		<input type="tel" id="phonenumber" name="phonenumber" value=" ' . $data['phonenumber'] . ' " placeholder="0612345678">
+		<span class="error"> ' . $data['phonenumberErr'] . ' </span><br><br>
+	</div>
+
+	<div class="communication">
+		<br>
+		<label for="communication"> Prefered communication:</label>
+		<span class="error"> ' . $data['communicationErr'] . '</span><br>
+		<input type="radio" id="email2" name="communication"  if (isset($communication) && $communication == "email") echo "checked"; value="email">
+		<label for="email2">Email</label><br>
+		<input type="radio" id="phone" name="communication" <?php if (isset($communication) && $communication == "phone") echo "checked"; ?> value="phone">
+		<label for="phone">Phone</label><br>
+		<br>
+	</div>
+
+
+	<div class="input">
+		<label for="input"> Input field: </label>
+		<textarea name="input" rows="8" cols="30" placeholder="Vul hier overige informatie die van belang is in."><?php echo $input; ?></textarea> <br>
+		<br>
+	</div>
+
+
+	<div>
+		<input type="submit" value="Submit">
+	</div>
+
+
+</form>';
+}
+
+function ShowContactThanks($data){
+	echo '<p class="thanks"> Bedankt voor het invullen van het contactformulier. </p>
+	<br>
+	<h3> Jouw gegevens:</h3>';
+	echo 'Preamble: ' . $data['preamble'] . PHP_EOL;
+	echo "<br>";
+	echo 'Name: ' . $data['name']  . PHP_EOL;
+	echo "<br>";
+	echo 'Email: ' .  $data['email'] . PHP_EOL;
+	echo "<br>";
+	echo 'Prefered communication: ' . $data['communication'] . PHP_EOL;
+	echo "<br>";
+	echo 'Phonenumber: ' . $data['phonenumber'] . PHP_EOL;
+	echo "<br>";
+	echo 'Input: ' . $data['input'] . PHP_EOL;
+}
 
 ?>
 
