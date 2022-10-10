@@ -24,18 +24,7 @@ function showContactContent() {
 
     }
 }
- /* waarom?? return array ("name" => $name, 
 
-								"nameErr" => $nameErr,
-
-								"validForm" => $validForm  ); 
-		 
-		 } 
-	 En waarom?? 	  if ($_REQUEST['REQUEST_METHOD'] == 'POST' ) {
-		>>>>>>>>	 $name = testInput(getPostVar('name'));
-					if (empty($name)) { 
-		             $nameErr = "Vul uw naam in";
-*/ 		 
 function validateContact() {
 	$preambleErr = $nameErr = $emailErr = $communicationErr = $phonenumberErr = $inputErr = "";
 	$preamble = $name = $email = $communication = $phonenumber = $input = "";
@@ -44,39 +33,41 @@ function validateContact() {
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$name = test_input(getPostVar('name'));
 		if (empty($name)) {
-			$nameErr = "Name is required";
+			$nameErr = "Naam is verplicht.";
 		} else {
 			if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
-				$nameErr = "Only letters and white space allowed";
+				$nameErr = "Alleen letters en spaties zijn toegestaan.";
 			}
 		}
 
 		$email = test_input(getPostVar('email'));
 		if (empty($email)) {
-			$emailErr = "Email is required";
+			$emailErr = "Email is verplicht.";
 		} else {
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				$emailErr = "Invalid email format";
+				$emailErr = "Ongeldig email.";
 			}
 		}
 
 		$communication = test_input(getPostVar('communication'));
 		if (empty($communication)) {
-			$communicationErr = "Communication is required";
-		} else {
-
-		}
-
-		$phonenumber = test_input(getPostVar('phonenumber'));
-		if (empty($phonenumber)) {
-			$phonenumberErr = "Phonenumber is required";
+			$communicationErr = "Communicatievoorkeur is verplicht.";
 		} else {
 			
 		}
 
+		$phonenumber = test_input(getPostVar('phonenumber'));
+		if (empty($phonenumber)) {
+			$phonenumberErr = "Telefoonnummer is verplich.t";
+		} else {
+			if (!preg_match("/^0([0-9]{9})$/", $phonenumber)) {
+				$phonenumberErr = "Vul geldig telefoonnummer in.";
+			}
+		}
+
 		$preamble = test_input(getPostVar('preamble'));
 		if (empty($preamble)) {
-			$preambleErr = "Preamble is required";
+			$preambleErr = "Aanhef is verplicht.";
 		} else {
 	
 		}
@@ -138,7 +129,7 @@ function showContactForm($data) {
 		<br>
 		<label for="communication">Voorkeur communicatie:</label>
 		<span class="error"> ' . $data['communicationErr'] . '</span><br>
-		<input type="radio" id="email2" name="communication"';  if (isset($data['communication']) && $data['communication'] == "email") echo "checked"; echo'value="email" >
+		<input type="radio" id="email2" name="communication"';  if (isset($data['communication']) && $data['communication'] == "email") echo "checked"; echo' value="email" >
 		<label for="email2">Email</label><br>
 		<input type="radio" id="phone" name="communication"'; if (isset($data['communication']) && $data['communication'] == "phone") echo "checked"; echo' value="phone">
 		<label for="phone">Telefoon</label><br>
