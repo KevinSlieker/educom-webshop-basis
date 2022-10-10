@@ -87,6 +87,13 @@ function validateContact() {
 
 
 	}
+	return array("name" => $name, "nameErr" => $nameErr,
+	"valid" => $valid,
+	"preamble" => $preamble, "preambleErr" => $preambleErr,
+	"email" => $email, "emailErr" => $emailErr,
+	"communication" => $communication, "communicationErr" => $communicationErr,
+	"phonenumber" => $phonenumber, "phonenumberErr" => $phonenumberErr, 
+	"input" => $input, "inputErr" => $inputErr);
 }
 
 function test_input($data)
