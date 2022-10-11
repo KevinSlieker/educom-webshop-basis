@@ -12,8 +12,8 @@ function showRegisterContent() {
      $data = validateRegister();
 
      if ($data['valid']) {
-        // naar login page
-         showLoginForm($data);
+        
+         storeUser($email,$name,$password);
 
      } else {
 
@@ -57,9 +57,18 @@ function validateRegister() {
 		if (empty($passwordrepeat)) {
 			$passwordrepeatErr = "Herhaal wachtwoord is verplicht.";
 		} else {
-        
+         if ($password !== $passwordrepeat) {
+			$passwordrepeatErr = "Herhaal wachtwoord komt niet over een met wachtwoord.";
+		 }
 		}
-
+		
+		if (empty($nameErr) && empty($emailErr) && empty($passwordErr) && empty($passwordrepeatErr)) {
+			if (empty(doesEmailExist($email))) {
+				$valid = true;
+			} else {
+				$emailErr = "Email is al in gebruik.";
+			}
+		}
 
 
     }
@@ -72,6 +81,8 @@ function validateRegister() {
 	"passwordrepeat" => $passwordrepeat, "passwordrepeatErr" => $passwordrepeatErr);
 
 }
+
+
 
 function test_input($data)
 {
