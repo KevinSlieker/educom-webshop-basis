@@ -8,8 +8,8 @@ function findUserByEmail($email){
     while (!feof($file)) {
         $line = fgets($file);
         $explode = explode('|', $line);
-        if ($explode [0] == "email"); {
-            $user = array("email" => $explode [0], "name"=> $explode [1], "password"=> $explode [2]);
+        if ($explode[0] == $email) {
+            $user = array("email" => $explode[0], "name"=> $explode[1], "password"=> $explode[2]);
         }
     }
     fclose($file);
