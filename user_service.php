@@ -1,4 +1,5 @@
 <?php
+require_once("file_repository.php");
 
 function authenicateUser($email, $password) {
 	$user = findUserByEmail($email);
@@ -17,14 +18,14 @@ function authenicateUser($email, $password) {
 function doesEmailExist($email){
     $user = findUserByEmail($email);
     if (empty($user)) {
-        return NULL;
+        return FALSE;
+    } else {
+    return TRUE;
     }
-
 }
 
 function storeUser($email,$name,$password){
-    $user = saveUser($email,$name,$password);
-    return $user;
+    saveUser($email,$name,$password);
 }
 
 ?>

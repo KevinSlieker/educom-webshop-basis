@@ -13,7 +13,7 @@ function showRegisterContent() {
 
      if ($data['valid']) {
         
-         storeUser($email,$name,$password);
+         storeUser($data['email'],$data['name'],$data['password']);
 
      } else {
 
@@ -26,6 +26,8 @@ function validateRegister() {
     $nameErr = $emailErr = $passwordErr = $passwordrepeatErr = "";
 	$name = $email = $password = $passwordrepeat = "";
 	$valid = false;
+
+	require_once("user_service.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$name = test_input(getPostVar('name'));
