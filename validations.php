@@ -156,7 +156,7 @@ function validateLogin() {
 		}
 
         if (empty($emailErr) && empty($passwordErr)) {
-			if (!empty(authenicateUser($email, $password))) {
+			if (!empty(authenticateUser($email, $password))) {
 				$valid = true;
 			} else {
                 if (doesEmailExist($email) == FALSE) {

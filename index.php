@@ -216,13 +216,13 @@ function showMenu()
       <li><a Href="index.php?page=about">About</a></li>
       <li><a Href="index.php?page=contact">Contact</a></li>';
 
-
-    if(isUserLoggedIn()){
-       echo showMenuItem("logout", "Logout" + getLoggedInUserName()); 
+    if (isUserLoggedIn()) {
+        echo showMenuItem("logout", "Logout " . getLoggedInUsername());
     } else {
-       echo showMenuItem("login","Login");
-       echo showMenuItem("register","Register");
+        echo showMenuItem ("login", "Login");
+        echo showMenuItem ("register", "Registrer");
     }
+
     echo '</ul>
 	</div>';
 } 
