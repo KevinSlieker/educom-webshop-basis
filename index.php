@@ -1,21 +1,20 @@
 <?php
 
-require_once('session_manager.php');
-require_once('contact.php');
-require_once('login.php');
-require_once('register.php');
-
-
 session_start();
+
+require_once('session_manager.php');
 
 $page = getRequestedPage();
 $data = processRequest($page);
 showResponsePage($data);
 
+var_dump($data);
+
 function processRequest($page)  {
 
     switch($page) {
-        case "login":
+        case 'login':
+            require_once('login.php');
             $data = validateLogin();
             if ($data['valid']) {
                doLoginUser($data['name']);
@@ -27,12 +26,14 @@ function processRequest($page)  {
             $page = 'home'; 
             break;
         case 'contact':
+            require_once('contact.php');
             $data = validateContact();
             if ($data['valid']) {
                $page = 'thanks';
            }
            break;
         case 'register':
+            require_once('register.php');
             $data = validateRegister();
             if ($data['valid']) {
                 $page = 'login' ;
@@ -50,11 +51,11 @@ function showContent($data)
    { 
        case 'home':
             require_once('home.php');
-            showHomeContent();
+            showHomeContent($data);
             break;
        case 'about':
             require_once('about.php');
-            showAboutContent();
+            showAboutContent($data);
             break;
        case 'contact':
             require_once('contact.php');
@@ -70,7 +71,7 @@ function showContent($data)
             break;
        case 'login':
             require_once('login.php');
-            showLoginContent();
+            showLoginContent($data);
             break;
        default:
             echo 'Error : Page NOT Found';  
@@ -121,11 +122,11 @@ function beginDocument()
    echo '<!doctype html> 
 <html>'; 
 } 
-
-function showHeadSection($page) 
+// waarom moet hier $data en geen $page??
+function showHeadSection($data) 
 { 
   echo '<head><title>';  
-  switch ($page) {
+  switch ($data['page']) {
     case 'home' :
         require_once('home.php');
         showHomeHead();
@@ -164,10 +165,10 @@ function showBodySection($page)
 } 
 
  
-function showHeader($page) 
+function showHeader($data) 
 { 
     echo '<h1>';
-    switch ($page) {
+    switch ($data['page']) {
         case 'home' :
             require_once('home.php');
             showHomeHeader();
