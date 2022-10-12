@@ -1,5 +1,8 @@
 <?php
 
+require_once('session_manager.php');
+
+
 function showLoginHead(){
     echo "Login";
 }
@@ -76,7 +79,7 @@ function test_input($data)
 }	
 
 function showLoginForm($data) {
-	echo '<form action="index.php" method="post">
+	echo '<form action="index.php?page=home" method="post">
     <div class="info">
 		<br>
 		<label for="email">Email:</label>

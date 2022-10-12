@@ -1,7 +1,82 @@
 <?php
 
+require_once('session_manager.php');
+require_once('contact.php');
+require_once('login.php');
+require_once('register.php');
+
+
+session_start();
+
 $page = getRequestedPage();
-showResponsePage($page);
+$data = processRequest($page);
+showResponsePage($data);
+
+function processRequest($page)  {
+
+    switch($page) {
+        case "login":
+            $data = validateLogin();
+            if ($data['valid']) {
+               doLoginUser($data['name']);
+               $page = 'home';
+            } 
+            break;
+        case 'logout':
+            doLogoutUser(); 
+            $page = 'home'; 
+            break;
+        case 'contact':
+            $data = validateContact();
+            if ($data['valid']) {
+               $page = 'thanks';
+           }
+           break;
+        case 'register':
+            $data = validateRegister();
+            if ($data['valid']) {
+                $page = 'login' ;
+            }
+            break;
+     }
+      $data['page'] = $page;
+      return $data;
+ 
+}
+ 
+function showContent($data) 
+{ 
+   switch($data['page']) 
+   { 
+       case 'home':
+            require_once('home.php');
+            showHomeContent();
+            break;
+       case 'about':
+            require_once('about.php');
+            showAboutContent();
+            break;
+       case 'contact':
+            require_once('contact.php');
+            showContactForm($data);
+            break;
+       case 'thanks':
+            require_once('contact.php');
+            ShowContactThanks($data);
+            break;     
+       case 'register':
+            require_once('register.php');
+            showRegisterContent($data);
+            break;
+       case 'login':
+            require_once('login.php');
+            showLoginContent();
+            break;
+       default:
+            echo 'Error : Page NOT Found';  
+   }     
+}  
+
 
 function getRequestedPage() 
 {     
@@ -126,42 +201,23 @@ function showMenu()
     <ul>
       <li><a Href="index.php?page=home">Home</a></li>
       <li><a Href="index.php?page=about">About</a></li>
-      <li><a Href="index.php?page=contact">Contact</a></li>
-      <li><a Href="index.php?page=register">Register</a></li>
-      <li><a Href="index.php?page=login">Login</a></li>
-    </ul>
+      <li><a Href="index.php?page=contact">Contact</a></li>';
+
+
+    if(isUserLoggedIn()){
+       echo showMenuItem("logout", "Logout" + getLoggedInUserName()); 
+    } else {
+       echo showMenuItem("login","Login");
+       echo showMenuItem("register","Register");
+    }
+    echo '</ul>
 	</div>';
-
 } 
 
-function showContent($page) 
-{ 
-   switch ($page) 
-   { 
-       case 'home':
-            require_once('home.php');
-            showHomeContent();
-            break;
-       case 'about':
-            require_once('about.php');
-            showAboutContent();
-            break;
-       case 'contact':
-            require_once('contact.php');
-            showContactContent();
-            break;
-       case 'register':
-            require_once('register.php');
-            showRegisterContent();
-            break;
-       case 'login':
-            require_once('login.php');
-            showLoginContent();
-            break;
-       default:
-            echo 'Error : Page NOT Found';  
-   }     
-} 
+function showMenuItem($page, $label) {
+    return '<li><a Href="index.php?page='. $page .'">'.$label.'</a></li>';
+}
+
 
  
 function showFooter() 
