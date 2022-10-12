@@ -3,6 +3,9 @@
 session_start();
 
 require_once('session_manager.php');
+require_once('validations.php');
+require_once("user_service.php");
+require_once("file_repository.php");
 
 $page = getRequestedPage();
 $data = processRequest($page);
@@ -36,6 +39,7 @@ function processRequest($page)  {
             require_once('register.php');
             $data = validateRegister();
             if ($data['valid']) {
+                storeUser($data["email"],$data["name"],$data["password"]);
                 $page = 'login' ;
             }
             break;
@@ -67,11 +71,11 @@ function showContent($data)
             break;     
        case 'register':
             require_once('register.php');
-            showRegisterContent($data);
+            showRegisterForm($data);
             break;
        case 'login':
             require_once('login.php');
-            showLoginContent($data);
+            showLoginForm($data);
             break;
        default:
             echo 'Error : Page NOT Found';  
@@ -139,6 +143,10 @@ function showHeadSection($data)
         require_once('contact.php');
         showContactHead();
         break;
+    case 'thanks':
+        require_once('contact.php');
+        ShowContactHead();
+        break;    
     case 'register':
         require_once('register.php');
         showRegisterHead();
@@ -181,6 +189,10 @@ function showHeader($data)
             require_once('contact.php');
             showContactHeader();
             break;
+        case 'thanks':
+            require_once('contact.php');
+            ShowContactHeader();
+            break;    
         case 'register':
             require_once('register.php');
             showRegisterHeader();
