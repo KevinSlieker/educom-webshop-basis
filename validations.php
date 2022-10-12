@@ -135,8 +135,8 @@ function validateLogin() {
     $emailErr = $passwordErr = "";
 	$email = $password = "";
 	$valid = false;
+    $name = '';
 
-	require_once("user_service.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = test_input(getPostVar('email'));
@@ -158,6 +158,8 @@ function validateLogin() {
         if (empty($emailErr) && empty($passwordErr)) {
 			if (!empty(authenticateUser($email, $password))) {
 				$valid = true;
+                $user = authenticateUser($email, $password);
+                $name = $user['name'];
 			} else {
                 if (doesEmailExist($email) == FALSE) {
 				$emailErr = "Email is onbekend.";
@@ -172,7 +174,8 @@ function validateLogin() {
     return array(
 	"valid" => $valid,
 	"password" => $password, "passwordErr" => $passwordErr,
-	"email" => $email, "emailErr" => $emailErr);
+	"email" => $email, "emailErr" => $emailErr,
+    "name" => $name);
 
 }
 

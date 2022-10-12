@@ -17,7 +17,6 @@ function processRequest($page)  {
 
     switch($page) {
         case 'login':
-            require_once('login.php');
             $data = validateLogin();
             if ($data['valid']) {
                doLoginUser($data['name']);
@@ -29,14 +28,12 @@ function processRequest($page)  {
             $page = 'home'; 
             break;
         case 'contact':
-            require_once('contact.php');
             $data = validateContact();
             if ($data['valid']) {
                $page = 'thanks';
            }
            break;
         case 'register':
-            require_once('register.php');
             $data = validateRegister();
             if ($data['valid']) {
                 storeUser($data["email"],$data["name"],$data["password"]);
@@ -228,7 +225,7 @@ function showMenu()
 } 
 
 function showMenuItem($page, $label) {
-    return '<li><a Href="index.php?page='. $page .'">'.$label.'</a></li>';
+    return PHP_EOL.'<li><a Href="index.php?page='. $page .'">'.$label.'</a></li>';
 }
 
 
