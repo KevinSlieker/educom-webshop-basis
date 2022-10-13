@@ -94,11 +94,11 @@ function getRequestedPage()
    return $requested_page; 
 } 
 
-function showResponsePage($page) 
+function showResponsePage($data) 
 { 
    beginDocument(); 
-   showHeadSection($page); 
-   showBodySection($page); 
+   showHeadSection($data); 
+   showBodySection($data); 
    endDocument(); 
 }
 
@@ -123,7 +123,7 @@ function beginDocument()
    echo '<!doctype html> 
 <html>'; 
 } 
-// waarom moet hier $data en geen $page??
+
 function showHeadSection($data) 
 { 
   echo '<head><title>';  
@@ -159,12 +159,12 @@ function showHeadSection($data)
   echo '</title> <link rel="stylesheet" href="CSS/stylesheet.css"> </head>';
 } 
 
-function showBodySection($page) 
+function showBodySection($data) 
 { 
    echo '    <body>' . PHP_EOL; 
-   showHeader($page);
+   showHeader($data);
    showMenu(); 
-   showContent($page); 
+   showContent($data); 
    showFooter(); 
    echo '    </body>' . PHP_EOL; 
 } 
