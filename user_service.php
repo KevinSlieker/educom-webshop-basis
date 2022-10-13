@@ -1,5 +1,4 @@
 <?php
-require_once("file_repository.php");
 
 function authenticateUser($email, $password) {
 	$user = findUserByEmail($email);

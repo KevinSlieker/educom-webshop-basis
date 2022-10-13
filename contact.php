@@ -11,21 +11,6 @@ function showContactHeader() {
     echo "Contact";
 }
 
-function showContactContent() {
-     $data = validateContact();
-
-     if ($data['valid']) {
-
-         showContactThanks($data);
-
-     } else {
-
-         showContactForm($data);
-
-    }
-}
-
-
 
 function showContactForm($data) {
 	echo '<form action="index.php" method="post">

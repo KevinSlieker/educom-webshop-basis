@@ -1,8 +1,5 @@
 <?php
 
-require_once('session_manager.php');
-
-
 function showLoginHead(){
     echo "Login";
 }
