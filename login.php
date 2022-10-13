@@ -10,7 +10,7 @@ function showLoginHeader() {
 
 
 function showLoginForm($data) {
-	echo '<form action="index.php?page=home" method="post">
+	echo '<form action="index.php" method="post">
     <div class="info">
 		<br>
 		<label for="email">Email:</label>

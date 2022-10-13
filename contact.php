@@ -11,6 +11,14 @@ function showContactHeader() {
     echo "Contact";
 }
 
+/*
+IPV wat er bij de preamble staat.
+showFormStart();
+showFormSectionStart("preamble");
+showFormItem("preamble", "select", "Aanhef:", $data, NULL, array('mr'  => "Meneer", 'mrs' => "Mevrouw"));
+showFormSectionEnd();
+*/
+
 
 function showContactForm($data) {
 	echo '<form action="index.php" method="post">
