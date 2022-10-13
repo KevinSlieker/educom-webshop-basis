@@ -156,18 +156,21 @@ function validateLogin() {
 		}
 
         if (empty($emailErr) && empty($passwordErr)) {
-			if (!empty(authenticateUser($email, $password))) {
-				$valid = true;
-                $user = authenticateUser($email, $password);
-                $name = $user['name'];
-			} else {
-                if (doesEmailExist($email) == FALSE) {
-				$emailErr = "Email is onbekend.";
-                } else {
-                $passwordErr = "Verkeerd wachtwoord.";    
-                }
-                }
+			$authenticate = authenticateUser($email, $password);
+			switch($authenticate['result']) {
+				case RESULT_OK:
+					$valid = TRUE;
+					$name = $authenticate['user']['name'];
+					break;
+				case RESULT_WRONG_PASSWORD:
+					$passwordErr = "Verkeerd wachtwoord.";
+					break;
+				case RESULT_WRONG_EMAIL:
+					$emailErr = "Email is onbekend.";
+					break;
 			}
+			}
+			
 		}
 
     
