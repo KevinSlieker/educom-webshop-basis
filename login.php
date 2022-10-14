@@ -10,25 +10,12 @@ function showLoginHeader() {
 
 
 function showLoginForm($data) {
-	echo '<form action="index.php" method="post">
-    <div class="info">
-		<br>
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" value="' . $data['email'] . '" placeholder="Doe@gmail.com">
-		<span class="error"> ' . $data['emailErr'] . ' </span><br><br>
-		<label for="password">Wachtwoord:</label>
-		<input type="password" id="password" name="password" value="' . $data['password'] . '" placeholder="Wachtwoord123">
-		<span class="error">' . $data['passwordErr'] . '</span><br><br>
-
-	</div>
-
-	<div>
-		<input type="submit" value="Login">
-	</div>
-
-	<input type="hidden" name="page" value="login">
-
-</form>';
+showFormStart();
+showFormSectionStart("info");
+showFormItem("email", "email", "Email:", $data, "Doe@gmail.com");
+showFormItem("password", "password", "Wachtwoord:", $data, "Wachtwoord123");
+showFormSectionEnd();
+showFormEnd("login", "Login");
 }
 
 

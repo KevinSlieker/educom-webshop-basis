@@ -91,7 +91,7 @@ function showFormItem($key, $type, $label, $data, $placeholder = NULL, $options 
 
 
 function showFormSectionEnd() {
-    echo '</div><br>' . PHP_EOL;
+    echo '</div>' . PHP_EOL;
 }
 
 function showFormEnd($page, $name) {
@@ -99,7 +99,7 @@ function showFormEnd($page, $name) {
         <input type="submit" value="' . $name . '">
         </div>
 
-    <input type="hidden" name="page" value="' . $page . '">';
+        <input type="hidden" name="page" value="' . $page . '">';
 
     echo '</form>' . PHP_EOL;
 }
