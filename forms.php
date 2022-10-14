@@ -1,4 +1,5 @@
 <?php
+/*
 showFormStart();
 showFormSectionStart("preamble");
 showFormItem("preamble", "select", "Aanhef:", $data, NULL, array('mr'  => "Meneer", 'mrs' => "Mevrouw"));
@@ -33,34 +34,37 @@ showFormEnd("contact", "Submit");
 		<input type="tel" id="phonenumber" name="phonenumber" value="' . $data['phonenumber'] . '" placeholder="0612345678">
 		<span class="error">' . $data['phonenumberErr'] . '</span><br><br>
 	</div>
+*/
 
 function showFormStart() {
-    echo '<form action="index.php" method="post">';
+    echo '<form action="index.php" method="post">' . PHP_EOL;
 }
 
 function showFormSectionStart($key) {
-    echo '<div class="' . $key . '">';
+    echo '<div class="' . $key . '">' . PHP_EOL;
 }
 
 function showFormItem($key, $type, $label, $data, $placeholder = NULL, $options = array()) {
-    echo '<label for="' . $key . '">' . $label . ' </label>';
+    echo '<label for="' . $key . '">' . $label . ' </label>' . PHP_EOL;
         if ($type == "select"){
-            echo '<' . $type . 'id="' . $key . '" name="' . $key . '">';
+            echo '<' . $type . ' id="' . $key . '" name="' . $key . '">' . PHP_EOL;
         } else {
-            echo '<input type="' . $type . '"id="' . $key . '" name="' . $key . '" placeholder="' . $placeholder . '">';
+            echo '<input type="' . $type . '"id="' . $key . '" name="' . $key . '" placeholder="' . $placeholder . '">' . PHP_EOL;
         }
-       '<span class="error"> ' . $data['' . $key . 'Err'] . ' </span><br><br>';
+       '<span class="error"> ' . $data['' . $key . 'Err'] . ' </span><br><br>' . PHP_EOL;
         if ($type == "select") {
-            echo '<options value="' . $options[0] . '"'; if (isset($data['' . $key . '']) && $data['' . $key . ''] == "' . $options[0] . '") echo "selected"; echo'>' . $options[0] . '</option>';
-        }
+            foreach($options as $key => $value){
+            echo '<option value="' . $key .'"'; if (isset($data[$key]) && $data[$key] == "$key") echo "selected"; echo'>' . $value . '</option>' . PHP_EOL;
+        }  echo '</select>' . PHP_EOL;
+    }
 }
 
 function showFormSectionEnd() {
-    echo '</div>';
+    echo '</div>' . PHP_EOL;
 }
 
 function showFormEnd() {
-    
+    echo '</form>' . PHP_EOL;
 }
 
 

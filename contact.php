@@ -69,6 +69,13 @@ function showContactForm($data) {
 	<input type="hidden" name="page" value="contact">
 
 </form>';
+
+showFormStart();
+showFormSectionStart("preamble");
+showFormItem("preamble", "select", "Aanhef:", $data, NULL, array('mr'  => "Meneer", 'mrs' => "Mevrouw"));
+showFormSectionEnd();
+showFormEnd();
+
 }
 
 function ShowContactThanks($data){
