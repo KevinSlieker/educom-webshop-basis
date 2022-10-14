@@ -74,7 +74,17 @@ showFormStart();
 showFormSectionStart("preamble");
 showFormItem("preamble", "select", "Aanhef:", $data, NULL, array('mr'  => "Meneer", 'mrs' => "Mevrouw"));
 showFormSectionEnd();
-showFormEnd();
+showFormSectionStart("info");
+showFormItem("name", "text", "Naam:", $data, "John");
+showFormItem("email", "email", "Email:", $data, "Doe@gmail.com");
+showFormItem("phonenumber", "tel", "Telefoonnummer:", $data, "0612345678");
+showFormSectionEnd();
+showFormItem("communication", "radio", "Voorkeur communicatie:", $data, NULL, array('email'  => "Email", 'phone' => "Telefoon"));
+showFormSectionEnd();
+showFormSectionStart("input");
+showFormItem("input", "textarea", "Text veld:", $data, "Vul hier overige informatie die van belang is in.", NULL, "8", "30");
+showFormSectionEnd();
+showFormEnd("contact", "Submit");
 
 }
 
